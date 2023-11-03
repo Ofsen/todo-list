@@ -64,7 +64,7 @@ jobs:
           name: build-artifact
           # where to save the artifact
           # using the same path as in the build workflow "restores" the state from the end of the build workflow
-          path: build
+          path: .
 
       - name: Deploy to GitHub Pages
         id: deployment
