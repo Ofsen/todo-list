@@ -37,7 +37,7 @@ jobs:
           # the name to save the compressed asset as
           name: build-artifact
           # the directory or file to upload. adapt to your needs
-          path: dist
+          path: build
           # the artifact is only needed for the duration of the build-deploy workflow
           # adapt to your needs
           # https://github.com/actions/upload-artifact#retention-period
