@@ -11,7 +11,8 @@ const TodoList = () => {
 
   const filteredTasks = useMemo(() => {
     if (filter === "completed") return tasks.filter((task) => task.completed);
-    if (filter === "notCompleted") return tasks.filter((task) => !task.completed);
+    if (filter === "notCompleted")
+      return tasks.filter((task) => !task.completed);
     return tasks;
   }, [filter, tasks]);
 
@@ -53,7 +54,11 @@ const TodoList = () => {
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         <div className="flex justify-end gap-2">
           <label htmlFor="filters">Filter by</label>
-          <select value={filter} id="filters" onChange={(e) => setFilter(e.target.value)}>
+          <select
+            value={filter}
+            id="filters"
+            onChange={(e) => setFilter(e.target.value)}
+          >
             <option value="all">All</option>
             <option value="completed">Completed</option>
             <option value="notCompleted">Not Completed</option>

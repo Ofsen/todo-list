@@ -8,13 +8,13 @@ describe("CompletedTasks", () => {
     return render(
       <TasksContext.Provider value={{ tasks: taskList }}>
         <CompletedTasks />
-      </TasksContext.Provider>
+      </TasksContext.Provider>,
     );
   };
 
   test("it should render no tasks when there are no completed tasks", () => {
     renderWithTasksContext([{ id: 1, text: "Task 1", completed: false }]);
-    expect(screen.queryByText("Task 1")).not.toBeInTheDocument();
+    expect(screen.queryByText("Task 1")).toBeNull();
   });
 
   test("it should render completed tasks", () => {
@@ -24,8 +24,8 @@ describe("CompletedTasks", () => {
       { id: 3, text: "Task 3", completed: true },
     ];
     renderWithTasksContext(tasks);
-    expect(screen.getByText("Task 2")).toBeInTheDocument();
-    expect(screen.getByText("Task 3")).toBeInTheDocument();
+    expect(screen.getByText("Task 2")).not.toBeNull();
+    expect(screen.getByText("Task 3")).not.toBeNull();
   });
 
   test("it should not render incomplete tasks", () => {
@@ -34,7 +34,7 @@ describe("CompletedTasks", () => {
       { id: 2, text: "Task 2", completed: true },
     ];
     renderWithTasksContext(tasks);
-    expect(screen.queryByText("Task 1")).not.toBeInTheDocument();
+    expect(screen.queryByText("Task 1")).toBeNull();
   });
 
   test("it should match snapshot with completed tasks", () => {
